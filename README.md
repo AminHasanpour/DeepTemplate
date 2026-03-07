@@ -84,8 +84,9 @@ something like this:
 ├── pyproject.toml
 ├── .python-version
 ├── README.md
-├── project_name
-│   └── __init__.py
+├── src
+│   └── project_name
+│       └── __init__.py
 ├── tasks.py
 ├── tests
 │   └── .gitkeep

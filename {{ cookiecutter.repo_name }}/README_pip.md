@@ -7,19 +7,12 @@
 The directory structure of the project looks like this:
 ```txt
 ├── .github/                  # Github actions and dependabot
-│   ├── dependabot.yaml
-│   └── workflows/
-│       └── tests.yaml
 ├── configs/                  # Configuration files
 ├── dockerfiles/              # Dockerfiles
 ├── docs/                     # Documentation
-│   ├── mkdocs.yml
-│   └── source/
-│       └── index.md
 ├── models/                   # Trained models
-├── {{cookiecutter.project_name}}/             # Source code
-│   └── __init__.py
-└── tests/                    # Tests
+├── src/{{cookiecutter.project_name}}/         # Source code
+├── tests/                    # Tests
 ├── .gitignore
 ├── .pre-commit-config.yaml
 ├── LICENSE
