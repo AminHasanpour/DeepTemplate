@@ -1,13 +1,34 @@
 site_name: {{ cookiecutter.project_name }}
+site_description: {{ cookiecutter.description }}
 site_author: {{ cookiecutter.author_name }}
 docs_dir: source
 
 theme:
   language: en
   name: material
+  palette:
+    - scheme: default
+      primary: light blue
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
+    - navigation.instant
+    - navigation.indexes
+    - navigation.footer
+    - navigation.top
     - content.code.copy
     - content.code.annotate
+    - content.tooltips
+    - search.suggest
+    - search.highlight
 
 plugins:
   - search
@@ -15,9 +36,14 @@ plugins:
       handlers:
         python:
           options:
+            docstring_style: google
+            show_source: true
             show_root_heading: true
+            show_category_heading: true
+            members_order: source
             separate_signature: true
             show_signature_annotations: true
+            merge_init_into_class: true
 
 nav:
   - Home: index.md

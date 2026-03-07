@@ -1,12 +1,12 @@
 Generating the docs
 ----------
 
-Use [mkdocs](http://www.mkdocs.org/) structure to update the documentation.
+Use [zensical](http://www.zensical.org/) structure to update the documentation.
 
 Build locally with:
 
-    mkdocs build
+    zensical build
 
 Serve locally with:
 
-    mkdocs serve
+    zensical serve
