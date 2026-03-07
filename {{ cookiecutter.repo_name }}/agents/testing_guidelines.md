@@ -1,10 +1,6 @@
----
-applyTo: "tests/**/*.py"
----
+# Testing Guidelines
 
-# Testing Guidelines for MLOps Systems
-
-The goal of testing in MLOps is **not** to verify model performance, but to ensure that
+The goal of testing is **not** to verify model performance, but to ensure that
 **data pipelines, models, and ML infrastructure behave correctly, reproducibly, and reliably**.
 
 ## Core Principles
