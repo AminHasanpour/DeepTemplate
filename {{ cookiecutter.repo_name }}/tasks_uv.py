@@ -23,3 +23,10 @@ def build_docs(ctx: Context) -> None:
 def serve_docs(ctx: Context) -> None:
     """Serve documentation."""
     ctx.run("uv run zensical serve --config-file docs/mkdocs.yaml", echo=True, pty=not WINDOWS)
+
+@task
+def clean(ctx: Context) -> None:
+    """Clean up build artifacts."""
+    ctx.run("rm -rf build .pytest_cache .mypy_cache .ruff_cache build dist *.egg-info", echo=True, pty=not WINDOWS)
+    ctx.run("find . -type f -name '*.py[co]' -delete", echo=True, pty=not WINDOWS)
+    ctx.run("find . -type d -name '__pycache__' -delete", echo=True, pty=not WINDOWS)
