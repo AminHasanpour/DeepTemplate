@@ -81,16 +81,10 @@ something like this:
 ├── LICENSE
 ├── models
 │   └── .gitkeep
-├── notebooks
-│   └── .gitkeep
 ├── .pre-commit-config.yaml
 ├── pyproject.toml
 ├── .python-version
 ├── README.md
-├── reports
-│   ├── figures
-│   │   └── .gitkeep
-│   └── .gitkeep
 ├── src
 │   └── project_name
 │       ├── api.py
