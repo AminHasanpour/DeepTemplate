@@ -80,6 +80,8 @@ if deps_manager == "uv":
         Path(".github/workflows/tests_uv.yaml").rename(".github/workflows/tests.yaml")
         Path(".github/workflows/linting_pip.yaml").unlink()
         Path(".github/workflows/linting_uv.yaml").rename(".github/workflows/linting.yaml")
+        Path(".github/workflows/pre-commit-update_pip.yaml").unlink()
+        Path(".github/workflows/pre-commit-update_uv.yaml").rename(".github/workflows/pre-commit-update.yaml")
         Path(".github/dependabot_pip.yaml").unlink()
         Path(".github/dependabot_uv.yaml").rename(".github/dependabot.yaml")
 
@@ -102,6 +104,8 @@ if deps_manager == "pip":
         Path(".github/workflows/tests_pip.yaml").rename(".github/workflows/tests.yaml")
         Path(".github/workflows/linting_uv.yaml").unlink()
         Path(".github/workflows/linting_pip.yaml").rename(".github/workflows/linting.yaml")
+        Path(".github/workflows/pre-commit-update_uv.yaml").unlink()
+        Path(".github/workflows/pre-commit-update_pip.yaml").rename(".github/workflows/pre-commit-update.yaml")
         Path(".github/dependabot_uv.yaml").unlink()
         Path(".github/dependabot_pip.yaml").rename(".github/dependabot.yaml")
 
