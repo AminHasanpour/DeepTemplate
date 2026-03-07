@@ -64,8 +64,7 @@ something like this:
 │   ├── devcontainer.json
 │   └── postCreateCommand.sh
 ├── dockerfiles
-│   ├── api.dockerfile
-│   └── train.dockerfile
+│   └── .gitkeep
 ├── docs
 │   ├── mkdocs.yaml
 │   ├── README.md
@@ -85,21 +84,11 @@ something like this:
 ├── pyproject.toml
 ├── .python-version
 ├── README.md
-├── src
-│   └── project_name
-│       ├── api.py
-│       ├── data.py
-│       ├── evaluate.py
-│       ├── __init__.py
-│       ├── model.py
-│       ├── train.py
-│       └── visualize.py
+├── project_name
+│   └── __init__.py
 ├── tasks.py
 ├── tests
-│   ├── __init__.py
-│   ├── test_api.py
-│   ├── test_data.py
-│   └── test_model.py
+│   └── .gitkeep
 └── uv.lock
 ```
 

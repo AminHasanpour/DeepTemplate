@@ -90,37 +90,11 @@ jobs:
           cd ${{ matrix.project_structure }}_pip_repo
           invoke --list
 
-      - name: Run project commands
-        run: |
-          cd ${{ matrix.project_structure }}_pip_repo
-          invoke preprocess-data
-          invoke train
-          invoke test
-        env:
-          TERM: xterm
-
       - name: Build documentation
         if: ${{ matrix.project_structure == 'advance' }}
         run: |
           cd ${{ matrix.project_structure }}_pip_repo
           invoke build-docs
-        env:
-          TERM: xterm
-
-      - name: Build dockerfiles
-        if: ${{ matrix.project_structure == 'advance' }}
-        run: |
-          cd ${{ matrix.project_structure }}_pip_repo
-          invoke docker-build
-        env:
-          TERM: xterm
-
-      - name: Check devcontainer
-        if: ${{ matrix.project_structure == 'advance' }}
-        run: |
-          cd ${{ matrix.project_structure }}_pip_repo
-          npx @devcontainers/cli build --workspace-folder .
-          npx @devcontainers/cli up --workspace-folder .
         env:
           TERM: xterm
 
@@ -159,36 +133,10 @@ jobs:
           cd ${{ matrix.project_structure }}_uv_repo
           uv run invoke --list
 
-      - name: Run project commands
-        run: |
-          cd ${{ matrix.project_structure }}_uv_repo
-          uv run invoke preprocess-data
-          uv run invoke train
-          uv run invoke test
-        env:
-          TERM: xterm
-
       - name: Build documentation
         if: ${{ matrix.project_structure == 'advance' }}
         run: |
           cd ${{ matrix.project_structure }}_uv_repo
           uv run invoke build-docs
-        env:
-          TERM: xterm
-
-      - name: Build dockerfiles
-        if: ${{ matrix.project_structure == 'advance' }}
-        run: |
-          cd ${{ matrix.project_structure }}_uv_repo
-          uv run invoke docker-build
-        env:
-          TERM: xterm
-
-      - name: Check devcontainer
-        if: ${{ matrix.project_structure == 'advance' }}
-        run: |
-          cd ${{ matrix.project_structure }}_uv_repo
-          npx @devcontainers/cli build --workspace-folder .
-          npx @devcontainers/cli up --workspace-folder .
         env:
           TERM: xterm

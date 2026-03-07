@@ -11,31 +11,15 @@ The directory structure of the project looks like this:
 │   └── workflows/
 │       └── tests.yaml
 ├── configs/                  # Configuration files
-├── data/                     # Data directory
-│   ├── processed
-│   └── raw
 ├── dockerfiles/              # Dockerfiles
-│   ├── api.Dockerfile
-│   └── train.Dockerfile
 ├── docs/                     # Documentation
 │   ├── mkdocs.yml
 │   └── source/
 │       └── index.md
 ├── models/                   # Trained models
-├── src/                      # Source code
-│   ├── project_name/
-│   │   ├── __init__.py
-│   │   ├── api.py
-│   │   ├── data.py
-│   │   ├── evaluate.py
-│   │   ├── models.py
-│   │   ├── train.py
-│   │   └── visualize.py
+├── {{cookiecutter.project_name}}/             # Source code
+│   └── __init__.py
 └── tests/                    # Tests
-│   ├── __init__.py
-│   ├── test_api.py
-│   ├── test_data.py
-│   └── test_model.py
 ├── .gitignore
 ├── .pre-commit-config.yaml
 ├── LICENSE

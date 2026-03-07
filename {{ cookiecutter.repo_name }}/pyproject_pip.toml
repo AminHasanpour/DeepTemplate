@@ -19,6 +19,9 @@ readme = "README.md"
 requires-python = ">={{ cookiecutter.python_version }}"
 dynamic = ["dependencies", "optional-dependencies"]
 
+[tool.setuptools.packages.find]
+exclude = ["tests*"]
+
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
 
