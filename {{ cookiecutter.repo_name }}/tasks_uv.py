@@ -6,13 +6,6 @@ WINDOWS = os.name == "nt"
 PROJECT_NAME = "{{ cookiecutter.project_name }}"
 PYTHON_VERSION = "{{ cookiecutter.python_version }}"
 
-# Project commands
-@task
-def test(ctx: Context) -> None:
-    """Run tests."""
-    ctx.run("uv run coverage run -m pytest tests/", echo=True, pty=not WINDOWS)
-    ctx.run("uv run coverage report -m -i", echo=True, pty=not WINDOWS)
-
 # Documentation commands
 @task
 def build_docs(ctx: Context) -> None:
@@ -24,6 +17,42 @@ def serve_docs(ctx: Context) -> None:
     """Serve documentation."""
     ctx.run("uv run zensical serve --config-file docs/mkdocs.yaml", echo=True, pty=not WINDOWS)
 
+# Code quality commands
+@task
+def lint(ctx: Context, *, fix: bool = True) -> None:
+    """Run Ruff linter."""
+    if fix:
+        ctx.run("uv run ruff check --fix src/ tests/", echo=True, pty=not WINDOWS)
+    else:
+        ctx.run("uv run ruff check src/ tests/", echo=True, pty=not WINDOWS)
+
+@task
+def format(ctx: Context, *, fix: bool = True) -> None:  # noqa: A001
+    """Run Ruff formatter."""
+    if fix:
+        ctx.run("uv run ruff format src/ tests/", echo=True, pty=not WINDOWS)
+    else:
+        ctx.run("uv run ruff format --check src/ tests/", echo=True, pty=not WINDOWS)
+
+@task
+def typecheck(ctx: Context) -> None:
+    """Run MyPy type checker."""
+    ctx.run("uv run mypy src/ tests/", echo=True, pty=not WINDOWS)
+
+@task
+def quality(ctx: Context) -> None:
+    """Run quality checks."""
+    lint(ctx, fix=False)
+    format(ctx, fix=False)
+    typecheck(ctx)
+
+@task
+def test(ctx: Context) -> None:
+    """Run tests."""
+    ctx.run("uv run coverage run -m pytest tests/", echo=True, pty=not WINDOWS)
+    ctx.run("uv run coverage report -m -i", echo=True, pty=not WINDOWS)
+
+# Cleaning commands
 @task
 def clean(ctx: Context) -> None:
     """Clean up build artifacts."""
